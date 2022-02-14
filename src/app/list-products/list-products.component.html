@@ -1,0 +1,9 @@
+<div class="list-group" *ngIf="selectedMovie == undefined">
+    <button class="list-group-item" active *ngFor="let movie of movies" (click)="onSelectMovie(movie._movieId)">
+        <p align="center" style="font-size:120%;">{{ movie._title }}</p>
+    </button>
+</div>
+
+<div *ngIf="selectedMovie">
+    <app-display-product [movieId]="selectedMovie"></app-display-product>
+</div>

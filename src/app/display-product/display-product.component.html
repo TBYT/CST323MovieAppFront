@@ -1,0 +1,20 @@
+<br/><div class="card container rounded-pill border border-dark" style="max-width: 500px" align="center">
+    <div class="row no-gutters">
+       <h2 class="card-title">{{ movie._title }}</h2>
+        <div class="card-body rounded-pill border border-dark">
+            <p style="font-size:125%;" class="card-text">Directed by {{ movie._director }}</p>
+            <h5 class="card-text">{{ movie._length }} minutes long.</h5>
+            <h4 class="card-text">{{ movie._description }}</h4>
+        </div>
+    </div>
+</div>
+<table align="center">
+    <tr>
+        <td width="50px" align="center">
+            <a [routerLink]="['/edit', movieId]"><i class="fa fa-edit"></i></a>
+        </td>
+        <td width="50px" align="center">
+            <a [routerLink]="['/delete', movieId]"><i class="fa fa-trash"></i></a>
+        </td>
+    </tr>
+</table>

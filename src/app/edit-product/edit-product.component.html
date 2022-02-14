@@ -1,0 +1,15 @@
+<h2 align="center">Update Movie Page</h2>
+<br/>
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="card container rounded border border-dark" style="max-width: 500px" align="center">
+        <div class="row no-gutters">
+            <h3 class="card-title">Title: <input type="text" id="Title" required formControlName="Title"></h3>
+            <div class="card-body rounded-pill border border-dark">
+                <p class="card-text">Director: <input type="text" id="Director" required formControlName="Director"></p>
+                <p class="card-text">Length: <input type="number" id="Length" required formControlName="Length"></p>
+                <p class="card-text">Description: <input type="text" id="Description" required formControlName="Description"></p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Update Movie</button>
+    </div>
+</form>
