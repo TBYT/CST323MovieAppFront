@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Movie } from '../models/Movie';
 import { MovieDAO } from '../service/MovieDAO';
 
@@ -10,7 +11,7 @@ import { MovieDAO } from '../service/MovieDAO';
 })
 export class CreateProductComponent implements OnInit {
 
-  constructor(private service: MovieDAO, private formBuilder: FormBuilder) { }
+  constructor(private service: MovieDAO, private formBuilder: FormBuilder, private router: Router) { }
 
   movie : Movie;
 
@@ -42,16 +43,18 @@ export class CreateProductComponent implements OnInit {
     this.movie._description = formReturn['Description'];
     this.movie._director = formReturn['Director'];
     this.movie._length = formReturn['Length'];
-    this.movie._movieId = -1;
+    this.movie._movieId = undefined;
     if ((formReturn['Title'] && formReturn['Description'] && formReturn['Director'] && formReturn['Length'])!="") //if values are not blank
     {
       if (Number(formReturn['Length'])) //if length is a number entered by the user.
       {// send to dao to create new movie
+        console.log(this.movie);
         this.service.createMovie( this.movie, (data: any) => 
         {
           console.log(data);
         });
         alert("Movie has been created!")
+        this.router.navigateByUrl('/');
       }
       else alert("Please put a valid number for the length.")
     }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../models/Movie';
 import { MovieDAO } from '../service/MovieDAO';
 
@@ -11,7 +11,7 @@ import { MovieDAO } from '../service/MovieDAO';
 })
 export class EditProductComponent implements OnInit {
 
-  constructor(private service: MovieDAO, private formBuilder: FormBuilder,private route: ActivatedRoute) { }
+  constructor(private service: MovieDAO, private formBuilder: FormBuilder,private route: ActivatedRoute, private router: Router) { }
 
   movie: Movie;
   id: number;
@@ -51,6 +51,7 @@ export class EditProductComponent implements OnInit {
         {
             this.movie = movie;
             alert("This movie has been updated!");
+            this.router.navigateByUrl('/');
         });
       }
       else alert("Please put a valid number for movie length.")

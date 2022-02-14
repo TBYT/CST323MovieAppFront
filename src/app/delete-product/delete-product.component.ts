@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MovieDAO } from '../service/MovieDAO';
 
 @Component({
@@ -9,7 +9,7 @@ import { MovieDAO } from '../service/MovieDAO';
 })
 export class DeleteProductComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private service: MovieDAO) { }
+  constructor(private route: ActivatedRoute, private service: MovieDAO, private router: Router) { }
 
   id: number;
   deleted: boolean = false;
@@ -22,6 +22,7 @@ export class DeleteProductComponent implements OnInit {
       this.deleted = true;
       alert("Movie has been deleted");
         //console.log(product);
+        this.router.navigateByUrl('/');
     });
     
 
