@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "CST323MovieApp": {
+    "CST323MovieAppFrontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/CST323MovieApp",
+            "outputPath": "dist/CST323MovieAppFrontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "CST323MovieApp:build:production"
+              "browserTarget": "CST323MovieAppFrontend:build:production"
             },
             "development": {
-              "browserTarget": "CST323MovieApp:build:development"
+              "browserTarget": "CST323MovieAppFrontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "CST323MovieApp:build"
+            "browserTarget": "CST323MovieAppFrontend:build"
           }
         },
         "test": {
@@ -105,5 +105,5 @@
       }
     }
   },
-  "defaultProject": "CST323MovieApp"
+  "defaultProject": "CST323MovieAppFrontend"
 }
