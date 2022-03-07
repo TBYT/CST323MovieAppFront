@@ -1,0 +1,39 @@
+<h3 class="card-title" align="center">Select an Option to Continue.</h3>
+<div class="list-group">
+    <button class="list-group-item" (click)="onSelectChoice(0)">
+        <p align="center" style="font-size:120%;">Register</p>
+    </button>
+    <button class="list-group-item" (click)="onSelectChoice(1)">
+        <p align="center" style="font-size:120%;">Login</p>
+    </button>
+</div>
+
+<div *ngIf="selectedChoice == 0">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="card container rounded border border-dark" style="max-width: 500px" align="center">
+            <div class="row no-gutters">
+                <div class="card-body rounded-pill border border-dark">
+                    <p class="card-text">Username: <input type="text" id="Username" required formControlName="Username"></p>
+                    <p class="card-text">Email: <input type="email" id="Email" required formControlName="Email"></p>
+                    <p class="card-text">Password: <input type="password" id="Password" required formControlName="Password"></p>
+                    <p class="card-text">Confirm Password: <input type="password" id="ConfirmPass" required formControlName="ConfirmPass"></p>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Register</button>
+        </div>
+    </form>
+</div>
+
+<div *ngIf="selectedChoice == 1">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="card container rounded border border-dark" style="max-width: 500px" align="center">
+            <div class="row no-gutters">
+                <div class="card-body rounded-pill border border-dark">
+                    <p class="card-text">Username: <input type="text" id="LoginUsername" required formControlName="LoginUsername"></p>
+                    <p class="card-text">Password: <input type="password" id="LoginPassword" required formControlName="LoginPassword"></p>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Login</button>
+        </div>
+    </form>
+</div>

@@ -7,7 +7,7 @@ export class MovieDAO
 {
   movies: Movie[] = [];
 
-  hostname:string = 'http://localhost:8080/service';
+  hostname:string = 'https://cst-323-clc-springboot-backend.herokuapp.com/service';
 
   constructor(private http: HttpClient)
   {

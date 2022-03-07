@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../models/Movie';
 import { MovieDAO } from '../service/MovieDAO';
+import { UserDAO } from '../service/UserDAO';
 
 @Component({
   selector: 'app-edit-product',
@@ -11,7 +12,7 @@ import { MovieDAO } from '../service/MovieDAO';
 })
 export class EditProductComponent implements OnInit {
 
-  constructor(private service: MovieDAO, private formBuilder: FormBuilder,private route: ActivatedRoute, private router: Router) { }
+  constructor(private service: MovieDAO, private middleware: UserDAO, private formBuilder: FormBuilder,private route: ActivatedRoute, private router: Router) { }
 
   movie: Movie;
   id: number;
@@ -25,13 +26,19 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit()
   {
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
-    this.service.getMovieById( this.id, (movie:Movie) =>
+    if(this.middleware.currentUser==undefined)
     {
-      	this.movie = movie;
-        this.editForm.setValue({Title: movie._title, Description: movie._description, Director: movie._director, Length: movie._length});
-        //console.log(movie);
-    });
+      this.router.navigateByUrl('/login');
+    }
+    else {
+      this.id = Number(this.route.snapshot.paramMap.get('id'));
+      this.service.getMovieById( this.id, (movie:Movie) =>
+      {
+          this.movie = movie;
+          this.editForm.setValue({Title: movie._title, Description: movie._description, Director: movie._director, Length: movie._length});
+          //console.log(movie);
+      });
+    }
   }
 
   public onSubmit(): void 

@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplayProductComponent } from './display-product/display-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
+import { AuthenticateUserComponent } from './authenticate-user/authenticate-user.component';
+import { LogoutUserComponent } from './logout-user/logout-user.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { DeleteProductComponent } from './delete-product/delete-product.componen
     ListProductsComponent,
     EditProductComponent,
     DisplayProductComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    AuthenticateUserComponent,
+    LogoutUserComponent
   ],
   imports: [
     BrowserModule,

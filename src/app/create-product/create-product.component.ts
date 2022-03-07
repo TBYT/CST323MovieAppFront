@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Movie } from '../models/Movie';
 import { MovieDAO } from '../service/MovieDAO';
+import { UserDAO } from '../service/UserDAO';
 
 @Component({
   selector: 'app-create-product',
@@ -11,7 +12,7 @@ import { MovieDAO } from '../service/MovieDAO';
 })
 export class CreateProductComponent implements OnInit {
 
-  constructor(private service: MovieDAO, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private service: MovieDAO, private middleware: UserDAO, private formBuilder: FormBuilder, private router: Router) { }
 
   movie : Movie;
 
@@ -31,7 +32,12 @@ export class CreateProductComponent implements OnInit {
 
   ngOnInit(): void
   { 
-    this.movie = new Movie(-1,"","","",-1);
+    if(this.middleware.currentUser==undefined)
+    {
+      this.router.navigateByUrl('/login');
+    }
+    else{
+    this.movie = new Movie(-1,"","","",-1); }
   }
 
   public onSubmit()
@@ -48,7 +54,7 @@ export class CreateProductComponent implements OnInit {
     {
       if (Number(formReturn['Length'])) //if length is a number entered by the user.
       {// send to dao to create new movie
-        console.log(this.movie);
+        //console.log(this.movie);
         this.service.createMovie( this.movie, (data: any) => 
         {
           console.log(data);
