@@ -4,11 +4,11 @@
   "engines": { "node": "~14.17.6", "npm": "~7.22.0" },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start" : "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "heroku-postbuild": "ng build — prod"
+    "heroku-postbuild": "ng build --base-href ."
   },
   "private": true,
   "dependencies": {
