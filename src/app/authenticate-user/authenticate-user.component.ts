@@ -69,17 +69,16 @@ export class AuthenticateUserComponent implements OnInit {
               this.user._password = formReturn['Password'];
               this.user._email = formReturn['Email'];
               this.user._userId = undefined;
-              this.service.createUser( this.user, (user:User) => 
+              this.service.createUser(this.user, (user:User) => 
               {
-                  this.user = user;
-                  this.loginForm.setValue({LoginUsername: this.user._username, LoginPassword: this.user._password});
                   alert("Account Created, now Login.");
-                  //this.router.navigateByUrl('/');
               });
+              this.selectedChoice=1;
+              this.loginForm.setValue({LoginUsername: this.user._username, LoginPassword: this.user._password});
             }
         	});
         }
-        else alert("Passwords do not match.")
+        else alert("Passwords do not match.");
       }
       else alert("Invalid entry.")
     }

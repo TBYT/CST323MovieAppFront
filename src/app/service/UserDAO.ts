@@ -5,7 +5,9 @@ import { User } from '../models/User';
 @Injectable({providedIn: 'root'})
 export class UserDAO
 {
-  users: User[];
+  //local use only
+  private users: User[];
+  //global use only
   currentUser: User;
 
   hostname:string = 'https://cst-323-clc-springboot-backend.herokuapp.com/userservice';
