@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/dist/cst323movieappfrontend'));
 
 app.get('/*', function(req,res) 
 {
-    res.sendFile(path.join(__dirname+'/index.html'));
+    res.sendFile(path.join(__dirname+'/dist/cst323movieappfrontend/index.html'));
 });
 
 app.listen(port, function() 
