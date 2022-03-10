@@ -7,7 +7,7 @@ app.use(express.static(__dirname));
 app.use(express.static(__dirname + '/dist/CST323MovieAppFrontend'));
 
 app.get('/ping', function (req, res) {
-    return res.send('pong port: '+port);
+    return res.send('pong');
 });
 
 app.get('/*', function(req,res) 
