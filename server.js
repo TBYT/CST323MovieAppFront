@@ -6,6 +6,10 @@ const app = express();
 app.use(express.static(__dirname));
 app.use(express.static(__dirname + '/dist/cst323movieappfrontend'));
 
+app.get('/ping', function (req, res) {
+    return res.send('pong port: '+port);
+});
+
 app.get('/*', function(req,res) 
 {
     res.sendFile(path.join(__dirname+'/dist/cst323movieappfrontend/index.html'));
@@ -14,4 +18,4 @@ app.get('/*', function(req,res)
 app.listen(port, function() 
 {
     console.info("Angular App is listening!");
-});
+})
