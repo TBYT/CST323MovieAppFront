@@ -17,12 +17,13 @@ export class DeleteProductComponent implements OnInit {
 
   ngOnInit(): void 
   {
-    if(this.middleware.currentUser==undefined)
+    if(this.middleware.currentUser==undefined) // if not logged in
     {
       this.router.navigateByUrl('/login');
     }
     else {
-      this.id = Number(this.route.snapshot.paramMap.get('id'));
+      this.id = Number(this.route.snapshot.paramMap.get('id')); //there must be a parameter for id in the url, 
+      //and user must be logged in to delete a movie
       this.service.deleteMovie( this.id, (any) =>
       {
         this.deleted = true;

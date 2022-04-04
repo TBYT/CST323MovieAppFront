@@ -15,12 +15,14 @@ export class LogoutUserComponent implements OnInit {
   {
     if(this.service.currentUser!=undefined)
     {
+      //can log out if a user is logged in.
       this.service.currentUser = undefined;
       alert("You are now logged out!");
       this.router.navigateByUrl('/');
     }
     else
     {
+      //can't log out if currentuser not defined.
       alert("Please login first!");
       this.router.navigateByUrl('/');
     }

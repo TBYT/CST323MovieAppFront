@@ -17,6 +17,7 @@ export class ListProductsComponent implements OnInit {
 
   ngOnInit()
   {
+    //list of movies that anyone can view on the website.
     	this.route.queryParams.subscribe(params => {
         	this.service.getMovies((movies:Movie[]) =>
         	{

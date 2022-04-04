@@ -10,13 +10,14 @@ import { UserDAO } from '../service/UserDAO';
   templateUrl: './edit-product.component.html',
   styleUrls: ['./edit-product.component.css']
 })
-export class EditProductComponent implements OnInit {
 
+export class EditProductComponent implements OnInit {
   constructor(private service: MovieDAO, private middleware: UserDAO, private formBuilder: FormBuilder,private route: ActivatedRoute, private router: Router) { }
 
   movie: Movie;
   id: number;
 
+  //the form controll for the .html
   editForm = this.formBuilder.group({
     Title: '',
     Description: '',
@@ -26,7 +27,7 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit()
   {
-    if(this.middleware.currentUser==undefined)
+    if(this.middleware.currentUser==undefined) //if not logged in
     {
       this.router.navigateByUrl('/login');
     }

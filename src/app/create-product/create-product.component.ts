@@ -16,6 +16,7 @@ export class CreateProductComponent implements OnInit {
 
   movie : Movie;
 
+  // form control for .html
   createForm = this.formBuilder.group({
     Title: '',
     Description: '',
@@ -32,7 +33,7 @@ export class CreateProductComponent implements OnInit {
 
   ngOnInit(): void
   { 
-    if(this.middleware.currentUser==undefined)
+    if(this.middleware.currentUser==undefined) //if not logged in
     {
       this.router.navigateByUrl('/login');
     }

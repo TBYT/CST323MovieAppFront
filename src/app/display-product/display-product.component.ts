@@ -13,7 +13,7 @@ export class DisplayProductComponent implements OnInit {
 
   @Input() movieId: number;
   movie: Movie;
-//
+//not logged in clients can view a movie.
   ngOnInit()
   {
     	this.service.getMovieById( this.movieId, (movie:Movie) =>

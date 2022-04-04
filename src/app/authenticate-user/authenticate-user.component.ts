@@ -18,6 +18,7 @@ export class AuthenticateUserComponent implements OnInit {
   //using UserDAO 'currentUser' for user state throughout app, not this variable.
   user: User;
 
+  //a form control for the .html 
   registerForm = this.formBuilder.group({
     Username: ['',[ Validators.minLength(4), Validators.required]],
     Email: ['', [Validators.required, Validators.email]],
@@ -25,6 +26,7 @@ export class AuthenticateUserComponent implements OnInit {
     ConfirmPass: ['',[ Validators.minLength(6), Validators.required]]
   });
 
+  //a form control for the .html
   loginForm = this.formBuilder.group({
     LoginUsername: ['',[ Validators.required]],
     LoginPassword: ['',[ Validators.required]]
@@ -42,7 +44,7 @@ export class AuthenticateUserComponent implements OnInit {
 
   public onSubmit(): void 
   {
-    if(this.selectedChoice==0)
+    if(this.selectedChoice==0) //0 == register form submitted
     {
       //get values from the form fields.
       let formReturn = this.registerForm.value;
@@ -82,7 +84,7 @@ export class AuthenticateUserComponent implements OnInit {
       }
       else alert("Invalid entry.")
     }
-    else if (this.selectedChoice==1)
+    else if (this.selectedChoice==1) //1 = login form submitted
     {
       let formReturn = this.loginForm.value;
       if (!this.loginForm.invalid) //if values are not blank
