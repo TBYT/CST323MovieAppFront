@@ -10,9 +10,11 @@ export class AppComponent
 {
   title = 'Movies!';
 
+  //urllocation = location.pathname;
+
   constructor(private router: Router)
   {
-    
+    router.onSameUrlNavigation = 'reload';
   }
 
   // public displayProductList()
