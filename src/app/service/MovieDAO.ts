@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Movie } from '../models/Movie';
+import { backendUri } from '../varconfig.js';
 
 @Injectable({providedIn: 'root'})
 export class MovieDAO
 {
   movies: Movie[] = [];
 
-  hostname:string = process.env.BACKEND_URI + 'service';
+  hostname:string = backendUri + 'service';
 
   constructor(private http: HttpClient)
   {
