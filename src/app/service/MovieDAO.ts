@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Movie } from '../models/Movie';
-import { backendUri } from '../varconfig.js';
+import { backendUri } from '../../../server.js';
 
 @Injectable({providedIn: 'root'})
 export class MovieDAO

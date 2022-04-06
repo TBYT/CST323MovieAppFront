@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const port = (process.env.PORT || 8080);
 const app = express();
+export let backendUri = process.env.BACKEND_URI;
 
 app.use(express.static(__dirname));
 app.use(express.static(__dirname + '/dist/CST323MovieAppFrontend'));

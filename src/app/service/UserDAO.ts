@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/User';
-import { backendUri } from '../varconfig.js';
+import { backendUri } from '../../../server.js';
 
 @Injectable({providedIn: 'root'})
 export class UserDAO
