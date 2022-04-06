@@ -7,7 +7,7 @@ export class MovieDAO
 {
   movies: Movie[] = [];
 
-  hostname:string = process.env.BACKEND_URI + 'service';
+  hostname:string = process.env.BACKEND_URI.concat('service');
 
   constructor(private http: HttpClient)
   {

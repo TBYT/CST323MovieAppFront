@@ -10,7 +10,7 @@ export class UserDAO
   //global use only
   currentUser: User;
 
-  hostname:string = process.env.BACKEND_URI + 'userservice';
+  hostname:string = process.env.BACKEND_URI.concat('userservice');
 
   constructor(private http: HttpClient)
   {
