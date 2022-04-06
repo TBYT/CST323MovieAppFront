@@ -1,6 +1,8 @@
 # Movie Management App (Angular Frontend)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
-This Angular application is deployed on Heroku and can be found at https://cst323-movies-clc.herokuapp.com/
+
+# About
+This is the front end Angular application that complements the spring boot backend. This is a movie management application where you can register or view movies as a guest. Hosted to Heroku at https://cst323-movies-clc.herokuapp.com/
 
 ## Development server
 
