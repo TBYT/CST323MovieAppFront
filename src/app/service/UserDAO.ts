@@ -10,7 +10,7 @@ export class UserDAO
   //global use only
   currentUser: User;
 
-  hostname:string = 'https://cst-323-clc-springboot-backend.herokuapp.com/userservice';
+  hostname:string = process.env.BACKEND_URI + 'userservice';
 
   constructor(private http: HttpClient)
   {
