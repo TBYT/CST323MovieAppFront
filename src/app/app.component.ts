@@ -9,7 +9,10 @@ import { Router } from '@angular/router';
 export class AppComponent 
 {
   title = 'Movies!';
-
+  public reload(): void
+  { 
+    location.replace('/');
+  }
   constructor(private router: Router)
   {
   }
