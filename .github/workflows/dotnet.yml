@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  delete:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: strumwolf/delete-deployment-environment@v2
