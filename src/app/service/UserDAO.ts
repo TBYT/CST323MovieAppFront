@@ -9,10 +9,8 @@ export class UserDAO
   private users: User[];
   //global use only
   currentUser: User;
-  
-  str1:String = new String(process.env.BACKEND_URI);
 
-  hostname:string = this.str1.concat('userservice');
+  hostname:string = process.env.BACKEND_URI.replace('undefined','') + 'userservice';
 
   constructor(private http: HttpClient)
   {

@@ -7,9 +7,7 @@ export class MovieDAO
 {
   movies: Movie[] = [];
 
-  str1:String = new String(process.env.BACKEND_URI);
-
-  hostname:string = this.str1.concat('service');
+  hostname:string = process.env.BACKEND_URI.replace('undefined','') + 'service';
 
   constructor(private http: HttpClient)
   {
