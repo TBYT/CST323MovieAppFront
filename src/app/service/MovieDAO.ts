@@ -7,7 +7,7 @@ export class MovieDAO
 {
   movies: Movie[] = [];
 
-  hostname:string = process.env.BACKEND_URI + 'service';
+  hostname:string = process.env.NG_APP_BACKEND_URI + 'service';
 
   constructor(private http: HttpClient)
   {

@@ -10,7 +10,7 @@ export class UserDAO
   //global use only
   currentUser: User;
 
-  hostname:string = process.env.BACKEND_URI + 'userservice';
+  hostname:string = process.env.NG_APP_BACKEND_URI + 'userservice';
 
   constructor(private http: HttpClient)
   {
