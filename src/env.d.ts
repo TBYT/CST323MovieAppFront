@@ -1,7 +1,7 @@
 declare var process: {
   env: {
     NG_APP_ENV: string;
-    // Replace the line below with your environment variable for better type checking
+    // This is an application secret that is not found in github! replace with your own backend url.
     NG_APP_BACKEND_URI: string;
   };
 };
