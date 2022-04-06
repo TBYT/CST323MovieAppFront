@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Movie } from '../models/Movie';
-import { backendUri } from '../../../server.js';
+import { environment } from '../../environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class MovieDAO

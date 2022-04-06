@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/User';
+import { environment } from '../../environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class UserDAO
@@ -10,7 +11,7 @@ export class UserDAO
   //global use only
   currentUser: User;
 
-  hostname:string = process.env.BACKEND_URI + 'userservice';
+  hostname:string = environment.BACKEND_URI + 'userservice';
 
   constructor(private http: HttpClient)
   {
