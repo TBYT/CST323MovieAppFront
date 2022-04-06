@@ -1,1 +1,1 @@
-export const backendUri = process.env.BACKEND_URI;
+export let backendUri = process.env.BACKEND_URI;
