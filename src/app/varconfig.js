@@ -1,1 +1,0 @@
-export let backendUri = process.env.BACKEND_URI;
