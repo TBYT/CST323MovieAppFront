@@ -7,8 +7,8 @@ name: 'Branch-Pruner-Easy'
 
 # INPUTS as environmental variables (env) for not manually triggered workflows 
 env:
-  NEW_FIRST_COMMIT: 'commit-hash'
-  TOKEN_NAME: ${{ secrets.BRANCH_PRUNER_TOKEN }}
+  NEW_FIRST_COMMIT: 'HEAD~59'
+  TOKEN_NAME: 'BRANCH_PRUNER_TOKEN'
   # 
   # THAT'S IT; JUMP TO THE TRIGGERS;
   DEFAULT_REPOSITORY: ${{ github.repository }} # repo with this file
