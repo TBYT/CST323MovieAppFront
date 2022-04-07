@@ -7,7 +7,7 @@ name: 'Branch-Pruner-Easy'
 
 # INPUTS as environmental variables (env) for not manually triggered workflows 
 env:
-  NEW_FIRST_COMMIT: 'HEAD~N'
+  NEW_FIRST_COMMIT: 'commit-hash'
   TOKEN_NAME: ${{ secrets.BRANCH_PRUNER_TOKEN }}
   # 
   # THAT'S IT; JUMP TO THE TRIGGERS;
