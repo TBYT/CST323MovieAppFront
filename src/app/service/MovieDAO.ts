@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Movie } from '../models/Movie';
 
 @Injectable({providedIn: 'root'})
@@ -9,6 +9,13 @@ export class MovieDAO
 
   hostname:string = process.env.NG_APP_BACKEND_URI + 'service';
 
+  headerOptions = {
+    headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Basic ' + btoa(process.env.AppAuthUser + ':' + process.env.AppAuthPassword)
+    })
+};
+
   constructor(private http: HttpClient)
   {
   }
@@ -16,7 +23,7 @@ export class MovieDAO
   public getMovies(callback:any)
   {
     // Return the list of Movies from rest service.
-    this.http.get<Movie[]>(this.hostname + "/allmovies")
+    this.http.get<Movie[]>(this.hostname + "/allmovies",this.headerOptions)
     .subscribe((results) =>
       {
         	let movies:Movie[] = [];
@@ -32,7 +39,7 @@ export class MovieDAO
   public getMovieById(id:number, callback:any)
   {
     //
-    this.http.get<Movie>(this.hostname + "/onemovie/" + id)
+    this.http.get<Movie>(this.hostname + "/onemovie/" + id,this.headerOptions)
       .subscribe((data) =>
       {
         //console.log(data);
@@ -48,7 +55,7 @@ export class MovieDAO
   public createMovie(movie:Movie, callback:any)
   {
     //
-    this.http.post<Movie>(this.hostname + "/createmovie", movie)
+    this.http.post<Movie>(this.hostname + "/createmovie", movie,this.headerOptions)
     .subscribe((data) =>
     {
       callback(data);
@@ -58,7 +65,7 @@ export class MovieDAO
   public updateMovie(movie:Movie, callback:any)
   {
     //
-    this.http.put<Movie>(this.hostname + "/onemovie/" + movie._movieId, movie)
+    this.http.put<Movie>(this.hostname + "/onemovie/" + movie._movieId, movie,this.headerOptions)
     .subscribe((data) =>
     {
       callback(data);
@@ -68,7 +75,7 @@ export class MovieDAO
   public deleteMovie(id:number, callback:any)
   {
     //
-    this.http.delete(this.hostname + "/delete/" + id)
+    this.http.delete(this.hostname + "/delete/" + id,this.headerOptions)
     .subscribe((data) =>
     {
       	callback(data);
