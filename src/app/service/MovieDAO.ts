@@ -31,7 +31,7 @@ export class MovieDAO
         	{
           		movies.push(new Movie(results[x]['id'], results[x]['title'], results[x]['description'], results[x]['director'], results[x]['length']));
         	}
-          //console.log(results);
+          console.log(process.env.AppAuthUser+":"+process.env.AppAuthPassword);
         	callback(movies);
        });
   }
