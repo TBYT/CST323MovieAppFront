@@ -12,8 +12,7 @@ export class MovieDAO
   headerOptions = {
     headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        'Authorization': 'Basic ' + btoa(process.env.AppAuthUser + ':' + process.env.AppAuthPassword),
-        'Access-Control-Allow-Origin': '*'
+        'Authorization': 'Basic ' + btoa(process.env.AppAuthUser + ':' + process.env.AppAuthPassword)
     })
 };
 
