@@ -2,7 +2,8 @@
   "name": "cst323movieappfrontend",
   "version": "4.0.0",
   "engines": {
-    "node": "18.15.0"
+    "node": "18.15.0",
+    "npm": "9.6.4"
   },
   "scripts": {
     "ng": "ng",
